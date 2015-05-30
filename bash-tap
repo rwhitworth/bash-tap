@@ -266,6 +266,18 @@ function diag() {
     fi
 }
 
+function note() {
+    local message="$*"
+
+    if [ -n "$message" ]; then
+       local output=''
+       while IFS= read -r line; do
+          output="$output\n# $line"
+       done <<<"$message"
+       echo -e "# ${output:4}" >&2
+    fi
+}
+
 # Util functions for output capture within current shell
 
 function start_output_capture() {
