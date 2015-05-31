@@ -1,6 +1,6 @@
 #!/bin/bash
 
-bash_tap_version='1.0.3'
+bash_tap_version='1.0.4'
 
 # Our state.
 

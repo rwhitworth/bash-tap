@@ -1,3 +1,7 @@
+* bash-tap 1.0.4 (2015-05-30-22:05)
+  * Updated skip() function and 'plan skip_all desc'
+  * Added t/ directory with example tests
+
 * bash-tap 1.0.3 (2015-05-29-23:30)
   * Add note() function, similar in nature to diag()
 
