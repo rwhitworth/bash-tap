@@ -1,6 +1,6 @@
 #!/bin/bash
 
-bash_tap_version='1.0.4'
+bash_tap_version='1.0.5'
 
 # Our state.
 
@@ -238,7 +238,10 @@ function cmp_ok() {
 # Other helper functions
 
 function BAIL_OUT() {
-    echo TODO
+# Note: it is up to the calling shell script to stop testing after this function is called
+
+    local message="$1"
+    _bt_escaped_echo "Bail out! $message"
 }
 
 function skip() {
