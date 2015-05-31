@@ -111,6 +111,7 @@ function has_plan() {
 function skip_all() {
     local reason="${*:?}"
 
+    _bt_plan="skip all"
     _bt_output_plan 0 SKIP "$reason"
 }
 
@@ -241,7 +242,19 @@ function BAIL_OUT() {
 }
 
 function skip() {
-    echo TODO
+    local message="$1"
+    local pattern="$2"
+    local name="$3"
+
+    _bt_current_test=$((_bt_current_test + 1))
+
+    if [ -n "$message" ]; then
+        if [ "$_bt_plan" == "skip all" ]; then
+            _bt_escaped_echo "#skip $name"
+        else
+            _bt_escaped_echo "ok # skip $name"
+        fi
+    fi
 }
 
 function todo_skip() {
